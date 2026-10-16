@@ -1,0 +1,14 @@
+/application/config/config.php
+/application/config/database.php
+/application/cache.zip
+/application/logs/*
+!/application/logs/index.html
+/application/cache/*
+!/application/cache/index.html
+/db_boss_sparepart.sql
+/*.xlsx
+/~$*.xlsx
+*.log
+.env
+.env.*
+!.env.example

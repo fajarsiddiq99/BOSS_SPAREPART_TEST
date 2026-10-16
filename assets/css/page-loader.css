@@ -1,0 +1,106 @@
+.page-loader {
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, .97);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+html.page-transitions-enabled .page-loader.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.page-loader__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    color: #343a40;
+    font: 600 .9rem/1.4 "Segoe UI", Tahoma, sans-serif;
+    text-align: center;
+}
+
+.page-loader__logo-wrap {
+    position: relative;
+    display: grid;
+    width: 190px;
+    height: 190px;
+    place-items: center;
+}
+
+.page-loader__ring {
+    position: absolute;
+    inset: 4px;
+    border: 3px solid rgba(255, 0, 157, .14);
+    border-top-color: #ff009d;
+    border-right-color: #dc3545;
+    border-radius: 50%;
+    animation: page-loader-spin .95s linear infinite;
+}
+
+.page-loader__logo {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+    animation: page-loader-bob 1.6s ease-in-out infinite;
+}
+
+.page-loader__label {
+    letter-spacing: .02em;
+}
+
+.page-loader__progress {
+    width: 126px;
+    height: 4px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 0, 157, .14);
+}
+
+.page-loader__progress span {
+    display: block;
+    width: 42%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #ff009d, #dc3545);
+    animation: page-loader-progress 1.2s ease-in-out infinite;
+}
+
+@keyframes page-loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes page-loader-bob {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.035); }
+}
+
+@keyframes page-loader-progress {
+    0% { transform: translateX(-110%); }
+    100% { transform: translateX(250%); }
+}
+
+@media (max-width: 575.98px) {
+    .page-loader__logo-wrap {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-loader {
+        transition-duration: .01ms;
+    }
+
+    .page-loader__ring,
+    .page-loader__logo,
+    .page-loader__progress span {
+        animation: none;
+    }
+}
