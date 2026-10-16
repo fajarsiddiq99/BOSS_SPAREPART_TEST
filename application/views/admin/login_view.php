@@ -27,7 +27,7 @@
         <div class="text-center mb-4">
             <img src="<?= base_url('assets/' . rawurlencode('LOGO FIX BOSS SPAREPARTS.png')); ?>" alt="Logo Boss Spare Parts" class="img-fluid mb-3" style="max-width: 150px; max-height: 90px; object-fit: contain;">
             <a href="<?= site_url() ?>" class="text-decoration-none fs-3">
-                <span class="fw-bold text-white">BOSS</span><span class="brand-orange">SPAREPART</span>
+                <span class="fw-bold text-white">BOSS</span><span class="brand-orange">SPAREPARTS</span>
             </a>
             <p class="text-slate-400 small mt-1" style="color: #94a3b8;">Masuk ke Portal Administrator</p>
         </div>
