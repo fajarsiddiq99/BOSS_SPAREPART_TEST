@@ -3,7 +3,7 @@
     <div class="container">
         <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="<?= site_url('catalog') ?>">
             <img src="<?= base_url('assets/' . rawurlencode('LOGO FIX BOSS SPAREPARTS.png')); ?>" alt="Logo Boss Spare Parts" style="width: 48px; height: 36px; object-fit: contain;">
-            <span class="text-white">BOSS</span><span style="color: #ff009d;">SPAREPART</span>
+            <span class="text-white">BOSS</span><span style="color: #ff009d;">SPAREPARTS</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Buka menu navigasi">
             <span class="navbar-toggler-icon"></span>

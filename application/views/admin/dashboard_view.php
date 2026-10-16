@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Boss SparePart</title>
+    <title>Admin Dashboard - BOSS SPAREPARTS</title>
     <link rel="icon" type="image/png" href="<?= base_url('assets/' . rawurlencode('LOGO FIX BOSS SPAREPARTS.png')) ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +18,7 @@
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold text-warning d-flex align-items-center gap-2" href="#">
                 <img src="<?= base_url('assets/' . rawurlencode('LOGO FIX BOSS SPAREPARTS.png')); ?>" alt="Logo Boss Spare Parts" style="width: 48px; height: 36px; object-fit: contain;">
-                BOSS SPARE PART - ADMIN PANEL
+                BOSS SPAREPARTS - ADMIN PANEL
             </a>
             <div class="d-flex align-items-center gap-3">
                 <span class="text-light small"><i class="fa-solid fa-user-circle me-1"></i> <?= $user_fullname; ?></span>
