@@ -18,7 +18,7 @@
         <div class="container-fluid px-4">
             <a class="navbar-brand fw-bold text-warning d-flex align-items-center gap-2" href="#">
                 <img src="<?= base_url('assets/' . rawurlencode('LOGO FIX BOSS SPAREPARTS.png')); ?>" alt="Logo Boss Spare Parts" style="width: 48px; height: 36px; object-fit: contain;">
-                BOSS SPAREPARTS - ADMIN PANEL
+                BOSS SPAREPARTS
             </a>
             <div class="d-flex align-items-center gap-3">
                 <span class="text-light small"><i class="fa-solid fa-user-circle me-1"></i> <?= $user_fullname; ?></span>
