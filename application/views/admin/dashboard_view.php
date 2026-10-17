@@ -48,8 +48,8 @@
             <div class="col-md-6">
                 <div class="card border-0 shadow-sm bg-success text-white">
                     <div class="card-body">
-                        <h6>TOTAL LEADS INQUIRY</h6>
-                        <h2 class="fw-bold mb-0"><?= $total_inquiries; ?> Lead</h2>
+                        <h6>TOTAL ARTIKEL</h6>
+                        <h2 class="fw-bold mb-0"><?= $total_articles; ?> Artikel</h2>
                     </div>
                 </div>
             </div>
@@ -62,6 +62,11 @@
                 <button class="btn btn-warning btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#addModal"><i class="fa-solid fa-plus me-1"></i> Tambah Part Baru</button>
             </div>
             <div class="card-body">
+                <div class="mb-3">
+                    <label for="inventory-search" class="visually-hidden">Cari nama spare part, kategori, atau merek</label>
+                    <input type="search" id="inventory-search" class="form-control" placeholder="Cari nama spare part, kategori, atau merek..." aria-controls="inventory-table-body">
+                    <div id="inventory-search-status" class="form-text" aria-live="polite">Menampilkan <?= count($spareparts); ?> spare part.</div>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-hover align-middle">
                         <thead class="table-dark">
@@ -77,9 +82,9 @@
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="inventory-table-body">
                             <?php $no=1; foreach($spareparts as $row): ?>
-                            <tr>
+                            <tr data-inventory-row data-inventory-search="<?= html_escape($row->part_name . ' ' . $row->category_name . ' ' . $row->brand); ?>">
                                 <td><?= $no++; ?></td>
                                 <td>
                                     <?php if (!empty($row->image)): ?>
@@ -101,6 +106,9 @@
                                 </td>
                             </tr>
                             <?php endforeach; ?>
+                            <tr id="inventory-no-results" hidden>
+                                <td colspan="9" class="text-center text-muted">Tidak ada spare part yang cocok.</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -203,12 +211,14 @@
                                         </td>
                                         <td><?= html_escape($article->title); ?></td>
                                         <td><?= html_escape(date('d-m-Y', strtotime($article->created_at))); ?></td>
-                                        <td class="d-flex gap-2">
-                                            <a href="<?= site_url('catalog/artikel/' . (int) $article->id); ?>" class="btn btn-outline-info btn-sm" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i></a>
-                                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editArticleModal<?= (int) $article->id; ?>"><i class="fa-solid fa-pen"></i></button>
-                                            <form action="<?= site_url('admin/delete_article/' . (int) $article->id); ?>" method="post" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
-                                                <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
-                                            </form>
+                                        <td class="text-nowrap">
+                                            <div class="d-flex gap-2">
+                                                <a href="<?= site_url('catalog/artikel/' . (int) $article->id); ?>" class="btn btn-outline-info btn-sm" target="_blank" rel="noopener"><i class="fa-solid fa-eye"></i></a>
+                                                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editArticleModal<?= (int) $article->id; ?>"><i class="fa-solid fa-pen"></i></button>
+                                                <form action="<?= site_url('admin/delete_article/' . (int) $article->id); ?>" method="post" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
+                                                    <button type="submit" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -327,6 +337,36 @@
         </div>
     </div>
 
+    <script>
+        (function () {
+            var searchInput = document.getElementById('inventory-search');
+            var tableBody = document.getElementById('inventory-table-body');
+            var status = document.getElementById('inventory-search-status');
+            var noResults = document.getElementById('inventory-no-results');
+
+            if (!searchInput || !tableBody || !status || !noResults) {
+                return;
+            }
+
+            var rows = Array.prototype.slice.call(tableBody.querySelectorAll('[data-inventory-row]'));
+
+            searchInput.addEventListener('input', function () {
+                var query = searchInput.value.trim().toLocaleLowerCase();
+                var visibleCount = 0;
+
+                rows.forEach(function (row) {
+                    var matches = row.getAttribute('data-inventory-search').toLocaleLowerCase().indexOf(query) !== -1;
+                    row.hidden = !matches;
+                    if (matches) {
+                        visibleCount++;
+                    }
+                });
+
+                noResults.hidden = visibleCount !== 0;
+                status.textContent = 'Menampilkan ' + visibleCount + ' dari ' + rows.length + ' spare part.';
+            });
+        })();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

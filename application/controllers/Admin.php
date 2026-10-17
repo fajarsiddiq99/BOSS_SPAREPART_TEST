@@ -18,9 +18,9 @@ class Admin extends CI_Controller {
 
     public function index() {
         $data['total_spareparts'] = $this->Sparepart_model->get_total_spareparts();
-        $data['total_inquiries'] = $this->Sparepart_model->get_total_inquiries();
         $data['spareparts'] = $this->Sparepart_model->get_all_spareparts();
         $data['articles'] = $this->Article_model->get_all();
+        $data['total_articles'] = count($data['articles']);
         $data['user_fullname'] = $this->session->userdata('full_name');
         
         $this->load->view('admin/dashboard_view', $data);
