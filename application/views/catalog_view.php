@@ -1,7 +1,7 @@
 <!-- Hero Section -->
 <header class="hero text-center">
     <div class="container">
-        <h1 class="display-4 fw-bold">Pusat Suku Cadang Alat Berat & Diesel Terlengkap No 1 indonesia</h1>
+        <h1 class="display-4 fw-bold">Pusat Suku Cadang Alat Berat & Diesel Terlengkap No 1 Indonesia</h1>
         <p class="lead text-light mb-4">menyediakan suku cadang untuk alat berat dan mesin diesel</p>
         <a href="<?= site_url('catalog/detail') ?>" class="btn btn-warning btn-lg fw-bold px-4">Lihat Katalog Spare Part</a>
     </div>
