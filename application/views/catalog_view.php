@@ -3,7 +3,7 @@
     <div class="container">
         <h1 class="display-4 fw-bold">Pusat Suku Cadang Alat Berat & Diesel Terlengkap No 1 Indonesia</h1>
         <p class="lead text-light mb-4">menyediakan suku cadang untuk alat berat dan mesin diesel</p>
-        <a href="<?= site_url('catalog/detail') ?>" class="btn btn-warning btn-lg fw-bold px-4">Lihat Katalog Spare Part</a>
+        <a href="<?= site_url('catalog/detail') ?>" class="btn btn-warning btn-lg fw-bold px-4">Lihat Katalog Sparepart</a>
     </div>
 </header>
 
@@ -43,8 +43,8 @@
 <!-- About Us -->
 <section id="tentang-kami" class="container my-5 text-center">
     <div class="mx-auto" style="max-width: 800px;">
-        <h2 class="fw-bold mb-3">Tentang Boss Spare Part</h2>
-        <p class="text-muted mb-0">Boss Spare Part menyediakan suku cadang untuk alat berat dan mesin diesel. Kami mendukung berbagai merek, termasuk Komatsu, Hitachi, Doosan, JCB, Sumitomo, dan lainnya. Hubungi kami untuk menanyakan ketersediaan part yang sesuai dengan kebutuhan alat Anda.</p>
+        <h2 class="fw-bold mb-3">Tentang Boss Sparepart</h2>
+        <p class="text-muted mb-0">Boss Sparepart menyediakan suku cadang untuk alat berat dan mesin diesel. Kami mendukung berbagai merek, termasuk Komatsu, Hitachi, Doosan, JCB, Sumitomo, dan lainnya. Hubungi kami untuk menanyakan ketersediaan part yang sesuai dengan kebutuhan alat Anda.</p>
     </div>
 </section>
 
